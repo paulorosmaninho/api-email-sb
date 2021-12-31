@@ -10,13 +10,19 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import br.com.apiemail.controllers.EmailController;
 import br.com.apiemail.model.Email;
 import br.com.apiemail.model.enums.StatusEmail;
 import br.com.apiemail.repositories.EmailRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 @Service
 public class EmailService {
 
+	private static Logger logger = LoggerFactory.getLogger(EmailController.class);
+	
 	@Autowired
 	EmailRepository emailRepository;
 
@@ -37,13 +43,19 @@ public class EmailService {
 			helper.setSubject(email.getAssuntoEmail());
 			mimeMessage.setContent(email.getTextoEmail(), "text/html");
 			emailSender.send(mimeMessage);
-
 			email.setStatusEmail(StatusEmail.ENVIADO);
+			logger.info("E-mail enviado com sucesso.");
+
 		} catch (MailException e){
+		
+			logger.info("Erro no envio do e-mail.");
 			email.setStatusEmail(StatusEmail.ERRO);
 			email.setDescricaoStatus(e.getMessage());
+			
 		} finally {
+			
 			return emailRepository.save(email);
+			
 		}
 	}
 }

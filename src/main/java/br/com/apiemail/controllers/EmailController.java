@@ -19,20 +19,15 @@ import br.com.apiemail.model.service.EmailService;
 @RequestMapping
 public class EmailController {
 
-	
 	@Autowired
 	EmailService emailService;
 	
 	
 	@PostMapping(value = "/enviarEmail")
 	public ResponseEntity<Email> enviarEmail(@RequestBody @Valid EmailDto emailDto){
-		
 		Email email = new Email();
-		
 		BeanUtils.copyProperties(emailDto, email);
-		
 		emailService.enviarEmail(email);
-		
 		return new ResponseEntity<>(email, HttpStatus.CREATED);
 	}
 	
