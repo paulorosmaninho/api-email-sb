@@ -4,7 +4,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/paulorosmaninho/api-email-sb)
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/paulorosmaninho/api-email-sb/blob/master/LICENSE) 
 
-## Disponível no Heroku através da URL: https://emailsb.herokuapp.com/enviarEmail
+### Disponível no Heroku através da URL: https://emailsb.herokuapp.com/enviarEmail
 
 # Sobre o projeto
 
@@ -32,7 +32,9 @@ JSON de Exemplo:
     "nomeDestinatario": "Maria Brown",
     "emailsDestinatario": "maria.brown@email.com, frank.brown@email.com",
     "assuntoEmail": "Novo Microserviço",
-    "textoEmail":"<h3>Olá Maria e Frank, tudo bem?</h3> Este é um novo microserviço para envio de e-mail <br> O que acharam?"
+    "textoEmail":"<h3>Olá Maria e Frank, tudo bem?</h3> 
+    Este é um novo microserviço para envio de e-mail <br> 
+    O que acharam?"
 }
 
 ```
