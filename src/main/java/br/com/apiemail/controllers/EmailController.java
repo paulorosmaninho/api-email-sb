@@ -31,9 +31,4 @@ public class EmailController {
 		return new ResponseEntity<>(email, HttpStatus.CREATED);
 	}
 	
-	
- 
-	
-	
-	
 }
