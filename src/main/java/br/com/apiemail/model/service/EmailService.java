@@ -37,11 +37,11 @@ public class EmailService {
 			
 			MimeMessage mimeMessage = emailSender.createMimeMessage();
 			
-			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "UTF-8");
+			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
 			helper.setTo(email.getEmailsDestinatario().split(","));
 			helper.setFrom(email.getEmailRemetente(), email.getNomeRemetente());
 			helper.setSubject(email.getAssuntoEmail());
-			mimeMessage.setContent(email.getTextoEmail(), "text/html");
+			mimeMessage.setContent(email.getTextoEmail(), "text/html; charset=utf-8");
 			emailSender.send(mimeMessage);
 			email.setStatusEmail(StatusEmail.ENVIADO);
 			logger.info("E-mail enviado com sucesso.");
